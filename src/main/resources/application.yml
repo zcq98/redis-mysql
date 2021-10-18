@@ -1,0 +1,93 @@
+spring:
+  profiles:
+    active: dev
+
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    url: jdbc:mysql://mysql-container:3306/mybatis?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: user
+    password: uEstC318.#
+
+logging:
+  file:
+    name: logs/springboot.log
+  logback:
+    rollingpolicy:
+      clean-history-on-start: true
+
+mybatis:
+  type-aliases-package: com.zcq.pojo
+  # classpath*:com/gitee/sunchenbin/mybatis/actable/mapping/*/*.xml为mybatis-enhance-actable固定配置
+  mapper-locations: classpath:mapper/*.xml,classpath*:com/gitee/sunchenbin/mybatis/actable/mapping/*/*.xml
+
+# knife4j-redis-lettuce配置
+knife4j:
+  redis:
+    jsonSerialType: Fastjson
+    host: 192.168.1.49
+    password:
+    port: 6379
+    databases: [ 0,2,5,6,7,8,9 ]
+    timeout: 60s
+    lettuce:
+      pool:
+        max-active: 50
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+
+# mybatis-enhance-actable配置
+actable:
+  table:
+    auto: create
+  model:
+    pack: com.zcq.pojo
+  database:
+    type: mysql
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/mybatis?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 2334867ks
+
+mybatis:
+  type-aliases-package: com.zcq.pojo
+  # classpath*:com/gitee/sunchenbin/mybatis/actable/mapping/*/*.xml为mybatis-enhance-actable固定配置
+  mapper-locations: classpath:mapper/*.xml,classpath*:com/gitee/sunchenbin/mybatis/actable/mapping/*/*.xml
+
+# knife4j-redis-lettuce配置
+knife4j:
+  redis:
+    jsonSerialType: Fastjson
+    host: 192.168.1.49
+    password:
+    port: 6379
+    databases: [ 0,2,5,6,7,8,9 ]
+    timeout: 60s
+    lettuce:
+      pool:
+        max-active: 50
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+
+# mybatis-enhance-actable配置
+actable:
+  table:
+    auto: create
+  model:
+    pack: com.zcq.pojo
+  database:
+    type: mysql

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zcq.dao.MsgQueueMapper">
+    <insert id="addMessage">
+        INSERT INTO mybatis.msg_queue (temptime, message)
+        VALUES (#{time}, #{message})
+    </insert>
+</mapper>

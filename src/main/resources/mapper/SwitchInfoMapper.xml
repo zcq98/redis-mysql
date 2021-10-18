@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zcq.dao.SwitchInfoMapper">
+    <insert id="addSwitchInfo">
+        INSERT INTO mybatis.switch_info (switchid, averagepkts, maxpkts, averagebytes, maxbytes, totalbytes,
+                                         totalflownums, totalflowrate)
+        VALUES (#{switchid}, #{switchInfo.averagepkts}, #{switchInfo.maxpkts}, #{switchInfo.averagebytes},
+                #{switchInfo.maxbytes}, #{switchInfo.totalbytes}, #{switchInfo.totalflownums},
+                #{switchInfo.totalflowrate})
+        ON DUPLICATE KEY UPDATE averagepkts   = #{switchInfo.averagepkts},
+                                maxpkts       = #{switchInfo.maxpkts},
+                                averagebytes  = #{switchInfo.averagebytes},
+                                maxbytes      = #{switchInfo.maxbytes},
+                                totalbytes    = #{switchInfo.totalbytes},
+                                totalflownums = #{switchInfo.totalflownums},
+                                totalflowrate = #{switchInfo.totalflowrate},
+                                time          = CURRENT_TIMESTAMP
+    </insert>
+</mapper>

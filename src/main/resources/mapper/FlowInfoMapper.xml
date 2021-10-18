@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zcq.dao.FlowInfoMapper">
+    <insert id="addFlowInfo">
+        INSERT INTO mybatis.flow_info (flowid, mac, ip, flag, protocol, dst_port, average_flow_rate, src_port, maxflow,
+                                       time,
+                                       visit_cnt, life)
+        VALUES (#{flowid}, #{mac}, #{ip}, #{flag}, #{flowInfo.protocol}, #{flowInfo.dstPort},
+                #{flowInfo.averageFlowRate}, #{flowInfo.srcPort},
+                #{flowInfo.maxflow},
+                #{flowInfo.time}, #{flowInfo.visitCnt}, #{flowInfo.life})
+        ON DUPLICATE KEY UPDATE mac               = #{mac},
+                                ip                = #{ip},
+                                flag              = #{flag},
+                                protocol          = #{flowInfo.protocol},
+                                dst_port          = #{flowInfo.dstPort},
+                                average_flow_rate = #{flowInfo.averageFlowRate},
+                                src_port          = #{flowInfo.srcPort},
+                                maxflow           = #{flowInfo.maxflow},
+                                time              = #{flowInfo.time},
+                                visit_cnt         = #{flowInfo.visitCnt},
+                                life              = #{flowInfo.life}
+    </insert>
+</mapper>
