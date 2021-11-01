@@ -24,4 +24,9 @@
                                 visit_cnt         = #{flowInfo.visitCnt},
                                 life              = #{flowInfo.life}
     </insert>
+
+    <delete id="deleteAll">
+        DELETE
+        FROM mybatis.flow_info
+    </delete>
 </mapper>

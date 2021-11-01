@@ -168,6 +168,7 @@ public class ParseRedisTask {
     public void loopdb9() {
         Map<String, FlowInfo> stringStringMap = parseRedisUtil.Jsonvalue2Bean(9, FlowInfo.class);
         String[] split;
+        flowInfoMapper.deleteAll();
         for (String s : stringStringMap.keySet()) {
             split = s.split(">");
             if (split[0].toCharArray()[2] == ':') {
