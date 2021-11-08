@@ -28,9 +28,9 @@ public class SwitchInfo {
     /* Redis解析填充 */
     private int averagepkts;
     private int maxpkts;
-    private int averagebytes;
-    private int maxbytes;
-    private int totalbytes;
+    private long averagebytes;
+    private long maxbytes;
+    private long totalbytes;
     private int totalflownums;
     private int totalflowrate;
 }
